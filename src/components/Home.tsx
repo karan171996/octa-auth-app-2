@@ -35,13 +35,13 @@ const Home = () => {
             <p className="read-the-docs">
             Click on the Vite and React logos to learn more
             </p>
-
-            <button onClick={() => loginWithRedirect()}>
+            {
+                isAuthenticated 
+                ? <button onClick={() => logout({logoutParams: {returnTo: window.location.origin }})}>Logout</button>
+                :  <button onClick={() => loginWithRedirect()}>
                 Login
             </button>
-
-            <button onClick={() => logout({logoutParams: {returnTo: window.location.origin }})}>Logout</button>
-
+            }
         </>
     )
 }
